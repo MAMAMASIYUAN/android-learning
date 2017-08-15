@@ -18,8 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private Button btn9;
     private Button btn0;
     private Button btnAdd;
+    private Button btnSubtract;
+    private Button btnMultiply;
+    private Button btnDivide;
     private Button btnEquals;
     private TextView tvResult;
+    private int i;
+//    private TextView tvResult2;
+//    private TextView tvResult3;
+//    private TextView tvResult4;
     private boolean isTypingNumber;
     private int firstNum = 0;
     private int secondNum = 0;
@@ -45,8 +52,14 @@ public class MainActivity extends AppCompatActivity {
         btn9 = (Button) findViewById(R.id.btn9);
         btn0 = (Button) findViewById(R.id.btn0);
         btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnSubtract = (Button) findViewById(R.id.btnSubtract);
+        btnMultiply = (Button) findViewById(R.id.btnMultiply);
+        btnDivide = (Button) findViewById(R.id.btnDivide);
         btnEquals = (Button) findViewById(R.id.btnEquals);
         tvResult = (TextView) findViewById(R.id.tvResult);
+//        tvResult2 = (TextView) findViewById(R.id.tvResult);
+//        tvResult3 = (TextView) findViewById(R.id.tvResult);
+//        tvResult4 = (TextView) findViewById(R.id.tvResult);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -66,10 +79,33 @@ public class MainActivity extends AppCompatActivity {
         btn8.setOnClickListener(listener);
         btn9.setOnClickListener(listener);
 
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OperatorClicked(v);
+                AddClicked(v);
+                i = 1;
+            }
+        });
+        btnSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SubClicked(v);
+                i = 2;
+            }
+        });
+        btnMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MutClicked(v);
+                i = 3;
+            }
+        });
+        btnDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DivClicked(v);
+                i = 4;
             }
         });
 
@@ -88,13 +124,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void EqualsClicked(View v) {
-        isTypingNumber = false;
-        secondNum = Integer.parseInt(tvResult.getText().toString());
-        String result = String.valueOf(firstNum + secondNum);
-        tvResult.setText(result);
+//        isTypingNumber = false;
+//        switch(i) {
+            isTypingNumber = false;
+            secondNum = Integer.parseInt(tvResult.getText().toString());
+            if(i==1){
+                String result = String.valueOf(firstNum + secondNum);
+                tvResult.setText(result);
+        }else if (i==2){
+                String result = String.valueOf(firstNum - secondNum);
+                tvResult.setText(result);
+            }else if (i==3){
+                String result = String.valueOf(firstNum * secondNum);
+                tvResult.setText(result);
+            }else if (i==4){
+                String result = String.valueOf(firstNum / secondNum);
+                tvResult.setText(result);
+            }
     }
 
-    private void OperatorClicked(View v) {
+    private void AddClicked(View v) {
+        isTypingNumber = false;
+        firstNum = Integer.parseInt(tvResult.getText().toString());
+
+        operatorString = ((Button) v).getText().toString();
+    }
+    private void SubClicked(View v) {
+        isTypingNumber = false;
+        firstNum = Integer.parseInt(tvResult.getText().toString());
+
+        operatorString = ((Button) v).getText().toString();
+    }
+    private void MutClicked(View v) {
+        isTypingNumber = false;
+        firstNum = Integer.parseInt(tvResult.getText().toString());
+
+        operatorString = ((Button) v).getText().toString();
+    }
+    private void DivClicked(View v) {
         isTypingNumber = false;
         firstNum = Integer.parseInt(tvResult.getText().toString());
 
@@ -112,4 +179,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
 
