@@ -17,12 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"/>
+
     <TextView
-        android:text="Right"
-        android:background="@color/blue50"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"/>
+        android:background="@color/blue50"
+        android:gravity="right"
+        android:text="Right" />
 
 </LinearLayout>
 
