@@ -18,7 +18,7 @@ public class People{
     public String getName(){
 		String firstName = "Steve";
 		String lastName = "Jobs";
-		return firstName + "" + lastName;
+		return firstName + " " + lastName;
 	}
 	
 }
