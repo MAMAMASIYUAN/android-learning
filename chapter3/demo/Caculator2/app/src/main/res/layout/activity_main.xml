@@ -134,11 +134,20 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnAdd"
+                android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="75dp"
                 android:layout_weight="1"
-                android:text="+"
+                android:text="*"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnSubtract"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:text="-"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -148,6 +157,30 @@
                 android:layout_height="75dp"
                 android:layout_weight="1"
                 android:text="0"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:text="+"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnDivide"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:text="/"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -160,6 +193,9 @@
                 android:textSize="40sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+
+
 
     </LinearLayout>
 </LinearLayout>
