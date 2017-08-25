@@ -1,0 +1,48 @@
+<LinearLayout
+                        android:id="@+id/Mainlayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+     <LinearLayout
+                        android:id="@+id/seekbarblocklayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        />
+    <com.devadvance.circularseekbar.CircularSeekBar
+            android:id="@+id/circularSeekBar1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+    ....
+    ....
+    />
+
+</LinearLayout>
+
+    public void disableSeekbar{
+
+             seekbarblocklayout=(LinearLayout)findViewById(R.id.seekbarblocklayout);
+            seekbarblocklayout.setVisibility(LinearLayout.VISIBLE);
+            seekbarblocklayout.bringToFront();
+    }
+
+  public void enableSeekbar{
+            seekbarblocklayout.setVisibility(LinearLayout.GONE);
+    }
+    
+    
+    
+    Try this:-
+
+In your xml:
+ <SeekBar
+        android:id="@+id/seekBar_bedrm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"/>
+
+In your code:-
+ SeekBar seekBar_bedrm;
+ seekBar_bedrm = (SeekBar) findViewById(R.id.seekBar_bedrm);
+ seekBar_bedrm.setEnabled(true);
