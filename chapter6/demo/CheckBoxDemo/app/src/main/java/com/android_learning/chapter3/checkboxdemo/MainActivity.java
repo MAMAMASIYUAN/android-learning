@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     public void onCheckedChanged(CompoundButton button, boolean isChecked) {
         Toast.makeText(this, button.getText() + "被" + (isChecked ? "选中" : "取消"),
                 Toast.LENGTH_SHORT).show();
+
     }
 
     public void onCheckboxClicked(View view) {

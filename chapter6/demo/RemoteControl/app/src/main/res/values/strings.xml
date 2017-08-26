@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RemoteControl</string>
+    <string name="myTV">我的电视</string>
+    <string name="myControl">我的遥控器</string>
+    <string name="power">电源</string>
+    <string name="voise">音量</string>
+    <string name="channel">频道</string>
+    <string name="MyFavChannel">最爱频道</string>
+    <string name="CurrentChannel">当前频道</string>
+    <string name="channelAdd">频道+</string>
+    <string name="channelSub">频道-</string>
+    <string name="FavChannel5">CCTV5</string>
+    <string name="FavChannel6">CCTV6</string>
+    <string name="FavChannel8">CCTV8</string>
+</resources>

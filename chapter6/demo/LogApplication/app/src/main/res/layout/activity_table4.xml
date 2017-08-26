@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="3dip">
+
+    <view
+        class="android.support.v4.widget.Space"
+        id="@+id/view"
+        layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:text="我的电视"
+            android:textSize="40sp" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:padding="3dp"
+                    android:text="电源" />
+
+                <view
+                    class="android.support.v4.widget.Space"
+                    id="@+id/view9"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="开" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="音量" />
+
+                <view
+                    class="android.support.v4.widget.Space"
+                    id="@+id/view10"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="50" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="当前频道" />
+
+                <view
+                    class="android.support.v4.widget.Space"
+                    id="@+id/view11"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="187" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <view
+        class="android.support.v4.widget.Space"
+        id="@+id/view2"
+        layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="我的遥控器"
+            android:textColor="@color/colorPrimary"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <view
+        class="android.support.v4.widget.Space"
+        id="@+id/view3"
+        layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:text="电源" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:checked="true"
+            android:onClick="onSwitchClicked"
+            android:tag="switch2" />
+
+    </TableRow>
+
+    <view
+        class="android.support.v4.widget.Space"
+        id="@+id/view4"
+        layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:text="音量" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="50"
+            android:progress="25" />
+    </TableRow>
+
+    <view
+        class="android.support.v4.widget.Space"
+        id="@+id/view5"
+        layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:text="频道" />
+
+        <view
+            class="android.support.v4.widget.Space"
+            id="@+id/view6"
+            layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9" />
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="频道+" />
+
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="频道-" />
+
+
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="最爱频道" />
+
+        <view
+            class="android.support.v4.widget.Space"
+            id="@+id/view8"
+            layout_weight="1"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CCTV5" />
+
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CCTV6" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CCTV7" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>
