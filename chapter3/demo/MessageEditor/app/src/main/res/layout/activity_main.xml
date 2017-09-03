@@ -16,11 +16,11 @@
 
         <EditText
             android:id="@+id/to"
-            android:inputType="textPersonName|textCapWords"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_to"/>
+            android:hint="@string/hint_to"
+            android:inputType="textPersonName|textCapWords" />
 
     </LinearLayout>
 
