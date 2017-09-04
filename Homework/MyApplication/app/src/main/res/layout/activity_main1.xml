@@ -25,12 +25,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Email" />
 
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView3"
-                android:inputType="textPersonName|textCapWords"
+            <EditText
+                android:id="@+id/fullname1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/Email" />
+                android:hint="@string/Email"
+                android:inputType="textPersonName|textCapWords" />
         </TableRow>
 
         <TableRow
@@ -38,13 +38,13 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/password1"
+                android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/PassWord" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/password1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/PassWord"

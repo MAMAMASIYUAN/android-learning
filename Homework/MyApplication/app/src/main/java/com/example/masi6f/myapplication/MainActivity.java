@@ -13,13 +13,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private TextView login;
     private Button register;
     private EditText fullname;
     private EditText email;
     private EditText editText3;
     private String preEmail = "";
-    private String PrePassword = "";
+    private String PrePassword;
+    public String[][] account = new String[100][2];
+    private int i = 0;
 
 
     @Override
@@ -37,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+/**
+ * 传递数据
+ */
+
+                Bundle map = new Bundle();
+                map.putSerializable("account",account);
+                intent.putExtras(map);
+
                 startActivity(intent);
             }
         });
@@ -44,38 +55,55 @@ public class MainActivity extends AppCompatActivity {
 
     private void RegiterControl(){
 
-        TextView fullName = (TextView) findViewById(R.id.fullname);
-        EditText email = (EditText) findViewById(R.id.email);
-        EditText editText3 = (EditText) findViewById(R.id.editText3);
         Button register = (Button) findViewById(R.id.register);
 
         register.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
+
+
+                TextView fullName = (TextView) findViewById(R.id.fullname);
+                EditText email = (EditText) findViewById(R.id.email);
+                EditText editText3 = (EditText) findViewById(R.id.editText3);
+                String preEmail = String.valueOf(email.getText());
+                String prePassword = String.valueOf(editText3.getText());
+                String messageText = "This " + email.getText() + " is not available Email address.";
+                String messageTextPassWord = "This is not an available Password.";
+                String messageTextOk = "Registration finished successfully.";
+                if(Validator.isEmail(preEmail)){
+                    if(Validator.isPassword(prePassword)){
+//                        for(i = 0;i < 100; i++){
+                          if(account[i][0] != null){
+//                              account[i][0] = String.valueOf(email.getText());
+//                              account[i][1] = String.valueOf(editText3.getText());
+//                              Toast.makeText(MainActivity.this, messageTextOk, Toast.LENGTH_SHORT).show();
+                              i++;
+                          }else{
+                              account[i][0] = String.valueOf(email.getText());
+                              account[i][1] = String.valueOf(editText3.getText());
+                              Toast.makeText(MainActivity.this, messageTextOk, Toast.LENGTH_SHORT).show();
+                          }
+//                        }
+
+                    }else{
+                        /**
+                         * Error message for invalid password.
+                         */
+                        Toast.makeText(MainActivity.this, messageTextPassWord, Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    /**
+                     * Error message for invalid email address.
+                     */
+//                    int duration = Toast.LENGTH_SHORT;
+//                    Toast toast = Toast.makeText(MainActivity.this, messageText, duration);
+//                    toast.show();
+                      Toast.makeText(MainActivity.this, messageText, Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-        String preEmail = String.valueOf(email.getText());
-
-        String prePassword = String.valueOf(editText3.getText());
-        String messageText = "This" + email.getText() + " is not available Email address";
-        if(Validator.isEmail(preEmail)){
-            if(Validator.isPassword(prePassword)){
-
-            }else{
-                //报密码不对
-            }
-
-        }else{
-            //报账号不对
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(this, messageText, duration);
-            toast.show();
-        }
-
-
-
 
     }
 }
