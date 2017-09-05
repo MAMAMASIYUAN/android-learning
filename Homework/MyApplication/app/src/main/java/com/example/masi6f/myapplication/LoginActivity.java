@@ -14,10 +14,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private TextView register;
-    private Button login1;
-    private EditText email1;
-    private EditText password1;
+//    private Button login1;
+//    private EditText email1;
+//    private EditText password1;
     private int i = 0;
+    public int w;
     private String[][] accountnew;
 
     @Override
@@ -28,15 +29,17 @@ public class LoginActivity extends AppCompatActivity {
          * 接受数据
          */
         Bundle bundle=this.getIntent().getExtras();
-        String[][] accountnew = (String[][]) bundle.getSerializable("account");
-//        if(accountnew!=null){
-//            accountnew = new String[100][];
-//            for(int i = 0;i < 100;i++){
-//                accountnew[i]=(String[]) account[i];
-//            }
+        String[][] account = (String[][]) bundle.getSerializable("account");
+        if(account!=null) {
+            accountnew = new String[100][2];
+            for (int i = 0; i < 100; i++) {
+                accountnew[i][0] = String.valueOf(account[i][0]);
+                accountnew[i][1] = String.valueOf(account[i][1]);
+            }
+        }
 
 
-            InitControlsBack();
+        InitControlsBack();
         LoginControl();
     }
 
@@ -49,43 +52,51 @@ public class LoginActivity extends AppCompatActivity {
                 EditText email1 = (EditText) findViewById(R.id.email1);
                 EditText password1 = (EditText) findViewById(R.id.password1);
                 String messageText = "This " + email1.getText() + " can not be found.";
-                String messageTextFailed = "This " + email1.getText() + " can not be found.";
+                String messageTextFailed = "This password not right.";
                 String messageTextAdmin = "This is admin.";
 
-                Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
 
-//                if(email1.getText().equals("admin") && password1.getText().equals("password")){
-//                    Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
-//
-//                }else {
+                if(String.valueOf(email1.getText()).equals("admin") && String.valueOf(password1.getText()).equals("password")){
+                    Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, accountnew[3][0], Toast.LENGTH_SHORT).show();
 
-//                    for (i = 0; i < 100; i++) {
-//
-//                        if (accountnew[i][0].equals(email1.getText())) {
-//                            if (accountnew[i][1].equals(password1.getText())) {
-//
-//                            } else {
-//                                /**
-//                                 * Warning for wrong password.
-//                                 */
+                }else if(!String.valueOf(email1.getText()).equals("admin")){
+                    for (i = 0; i < 100; i++) {
+                        if (String.valueOf(accountnew[i][0]).equals(String.valueOf(email1.getText()))) {
+                            w=3;
+                            if (String.valueOf(accountnew[i][1]).equals(String.valueOf(password1.getText()))) {
+                                w=4;
+//                                Toast.makeText(LoginActivity.this, "yesyesyesyes", Toast.LENGTH_SHORT).show();
+                            } else {
+                                w = 1;
+                                /**
+                                 * Warning for wrong password.
+                                 */
 //                                Toast.makeText(LoginActivity.this, messageTextFailed, Toast.LENGTH_SHORT).show();
-//
-//                            }
-//
-//                        } else {
-//                            /**
-//                             * Warning for wrong account.
-//                             */
+                            }
+
+                        } else {
+                            w = 2;
+                            /**
+                             * Warning for wrong account.
+                             */
 //                            Toast.makeText(LoginActivity.this, messageText, Toast.LENGTH_SHORT).show();
-//
-//
-//                        }
+                        }
+                    }
+                    if(w == 1){
+                        Toast.makeText(LoginActivity.this, messageTextFailed, Toast.LENGTH_SHORT).show();
+                    }else if( w == 2 ){
+                        Toast.makeText(LoginActivity.this, messageText, Toast.LENGTH_SHORT).show();
+
+                    }else if ( w==3 ){
+
+                    }else if (w == 4){
+                        Toast.makeText(LoginActivity.this, "yesyesyesyes", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
 
-//                    }
-//                }
-//
-//
             }
         });
     }

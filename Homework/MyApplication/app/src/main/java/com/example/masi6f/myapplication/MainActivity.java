@@ -15,12 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TextView login;
-    private Button register;
-    private EditText fullname;
-    private EditText email;
-    private EditText editText3;
-    private String preEmail = "";
-    private String PrePassword;
+//    private Button register;
+//    private EditText fullname;
+//    private EditText email;
+//    private EditText editText3;
+//    private String preEmail = "";
+//    private String PrePassword;
     public String[][] account = new String[100][2];
     private int i = 0;
 
@@ -73,18 +73,16 @@ public class MainActivity extends AppCompatActivity {
                 String messageTextOk = "Registration finished successfully.";
                 if(Validator.isEmail(preEmail)){
                     if(Validator.isPassword(prePassword)){
-//                        for(i = 0;i < 100; i++){
+
                           if(account[i][0] != null){
-//                              account[i][0] = String.valueOf(email.getText());
-//                              account[i][1] = String.valueOf(editText3.getText());
-//                              Toast.makeText(MainActivity.this, messageTextOk, Toast.LENGTH_SHORT).show();
+
                               i++;
                           }else{
                               account[i][0] = String.valueOf(email.getText());
                               account[i][1] = String.valueOf(editText3.getText());
                               Toast.makeText(MainActivity.this, messageTextOk, Toast.LENGTH_SHORT).show();
+//                              Toast.makeText(MainActivity.this, account[i][1], Toast.LENGTH_SHORT).show();
                           }
-//                        }
 
                     }else{
                         /**
