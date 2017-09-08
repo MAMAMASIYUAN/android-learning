@@ -17,10 +17,11 @@ public class LoginActivity extends AppCompatActivity {
 //    private Button login1;
 //    private EditText email1;
 //    private EditText password1;
+
     private int i = 0;
     public int w;
-    private String[][] accountnew;
-
+//    private String[][] accountnew;
+//    AccountArray AccountArray = new AccountArray();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         /**
          * 接受数据
          */
-        Bundle bundle=this.getIntent().getExtras();
-        String[][] account = (String[][]) bundle.getSerializable("account");
-        if(account!=null) {
-            accountnew = new String[100][2];
-            for (int i = 0; i < 100; i++) {
-                accountnew[i][0] = String.valueOf(account[i][0]);
-                accountnew[i][1] = String.valueOf(account[i][1]);
-            }
-        }
+//        Bundle bundle=this.getIntent().getExtras();
+//        String[][] account = (String[][]) bundle.getSerializable("account");
+//        if(AccountArray.account!=null) {
+////            AccountArray.account = new String[100][2];
+//            for (int i = 0; i < 100; i++) {
+//                accountnew[i][0] = String.valueOf(AccountArray.account[i][0]);
+//                accountnew[i][1] = String.valueOf(AccountArray.account[i][1]);
+//            }
+//        }
 
 
         InitControlsBack();
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 String messageTextFailed = "This password not right.";
                 String messageTextAdmin = "This is admin.";
 
-//                Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
+
 
                 if(String.valueOf(email1.getText()).equals("admin") && String.valueOf(password1.getText()).equals("password")){
                     Toast.makeText(LoginActivity.this, messageTextAdmin, Toast.LENGTH_SHORT).show();
@@ -63,9 +64,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else if(!String.valueOf(email1.getText()).equals("admin")){
                     for (i = 0; i < 100; i++) {
-                        if (email1.getText().equals(String.valueOf(accountnew[i][0]))) {
+                        if (String.valueOf(email1.getText()).equals(AccountArray.account[i][0])) {
                             w=3;
-                            if (password1.getText().equals(accountnew[i][1])) {
+                            if (String.valueOf(password1.getText()).equals(AccountArray.account[i][1])) {
                                 w=4;
 //                                Toast.makeText(LoginActivity.this, "yesyesyesyes", Toast.LENGTH_SHORT).show();
                             } else {
@@ -82,6 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                              * Warning for wrong account.
                              */
 //                            Toast.makeText(LoginActivity.this, messageText, Toast.LENGTH_SHORT).show();
+//                            for (i = 0; i < 100; i++) {
+//                                Toast.makeText(LoginActivity.this, AccountArray.account[i][0], Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(LoginActivity.this, AccountArray.account[i][1], Toast.LENGTH_SHORT).show();
+//                            }
                         }
                     }
                     if(w == 1){

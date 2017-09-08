@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 //    private EditText editText3;
 //    private String preEmail = "";
 //    private String PrePassword;
-    public String[][] account = new String[100][2];
+//    public String[][] account = new String[100][2];
     private int i = 0;
 
 
@@ -40,13 +40,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-/**
- * 传递数据
- */
-
-                Bundle map = new Bundle();
-                map.putSerializable("account",account);
-                intent.putExtras(map);
 
                 startActivity(intent);
             }
@@ -71,17 +64,20 @@ public class MainActivity extends AppCompatActivity {
                 String messageText = "This " + email.getText() + " is not available Email address.";
                 String messageTextPassWord = "This is not an available Password.";
                 String messageTextOk = "Registration finished successfully.";
+
+                AccountArray AccountArray = new AccountArray();
+
                 if(Validator.isEmail(preEmail)){
                     if(Validator.isPassword(prePassword)){
 
-                          if(account[i][0] != null){
+                          if(AccountArray.account[i][0] != null){
 
                               i++;
                           }else{
-                              account[i][0] = String.valueOf(email.getText());
-                              account[i][1] = String.valueOf(editText3.getText());
+                              AccountArray.account[i][0] = String.valueOf(email.getText());
+                              AccountArray.account[i][1] = String.valueOf(editText3.getText());
                               Toast.makeText(MainActivity.this, messageTextOk, Toast.LENGTH_SHORT).show();
-//                              Toast.makeText(MainActivity.this, account[i][1], Toast.LENGTH_SHORT).show();
+
                           }
 
                     }else{
@@ -92,12 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }else {
-                    /**
-                     * Error message for invalid email address.
-                     */
-//                    int duration = Toast.LENGTH_SHORT;
-//                    Toast toast = Toast.makeText(MainActivity.this, messageText, duration);
-//                    toast.show();
+
                       Toast.makeText(MainActivity.this, messageText, Toast.LENGTH_SHORT).show();
                 }
             }
