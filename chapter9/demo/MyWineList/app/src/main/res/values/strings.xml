@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyWineList</string>
+    <string name="title_activity_ratings">Wine Ratings</string>
+</resources>
