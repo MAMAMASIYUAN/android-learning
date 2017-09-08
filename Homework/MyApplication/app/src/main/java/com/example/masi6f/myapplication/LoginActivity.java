@@ -63,9 +63,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else if(!String.valueOf(email1.getText()).equals("admin")){
                     for (i = 0; i < 100; i++) {
-                        if (String.valueOf(accountnew[i][0]).equals(String.valueOf(email1.getText()))) {
+                        if (email1.getText().equals(String.valueOf(accountnew[i][0]))) {
                             w=3;
-                            if (String.valueOf(accountnew[i][1]).equals(String.valueOf(password1.getText()))) {
+                            if (password1.getText().equals(accountnew[i][1])) {
                                 w=4;
 //                                Toast.makeText(LoginActivity.this, "yesyesyesyes", Toast.LENGTH_SHORT).show();
                             } else {
