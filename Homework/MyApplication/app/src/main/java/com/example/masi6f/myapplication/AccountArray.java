@@ -8,10 +8,7 @@ import android.app.Application;
 
 public class AccountArray extends Application {
 
-        static String[][] account = new String[100][2];
-
-
-
+        public static String[][] account = new String[100][2];
 
 
 
