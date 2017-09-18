@@ -18,10 +18,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button login1;
     private EditText email1;
     private EditText password1;
-
     private int i = 0;
     public int w;
-
     String messageTextFailed = "This password not right.";
     String messageTextAdmin = "This is admin.";
 
@@ -29,10 +27,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-
-
-
-
         InitView();
         LoginPage();
     }
@@ -43,12 +37,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         email1 = (EditText) findViewById(R.id.email1);
         password1 = (EditText) findViewById(R.id.password1);
         register = (TextView) findViewById(R.id.register);
-
-
     }
 
     //注册事件
-
     private void LoginPage(){
         login1.setOnClickListener(this);
         register.setOnClickListener(this);
