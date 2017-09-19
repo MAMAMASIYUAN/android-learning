@@ -34,30 +34,30 @@ public class DummyContent {
     public static final Map<String, RestaurantList> RESTAURANTS_MAP = new HashMap<String, RestaurantList>();
 
 //    private static final int COUNT = 25;
-////
-//    static {
-//        // Add some sample items.
+
+    static {
+        // Add some sample items.
 //        for (int i = 1; i <= COUNT; i++) {
-//            addList(createRestaurantList(i));
+            addList(createRestaurantList());
 //        }
-//
-//    }
+
+    }
 
     private static void addList(RestaurantList List) {
 //        RESTAURANTS.add();
         RESTAURANTS_MAP.put(List.id, List);
     }
 
-    private static RestaurantList createRestaurantList(int position) {
-        return new RestaurantList(String.valueOf(position), "List " + position, makeDetails(position));
+    private static RestaurantList createRestaurantList() {
+        return new RestaurantList(RestaurantList.type, RestaurantList.id, RestaurantList.content, RestaurantList.details);
     }
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about List: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
+//        for (int i = 0; i < position; i++) {
+            builder.append(RestaurantList.details);
+//        }
         return builder.toString();
     }
 
@@ -69,15 +69,17 @@ public class DummyContent {
 
         public Bitmap image;
 
-        public RestaurantList(String id, String content, String details) {
+
+
+        public RestaurantList(Type type, String id, String content, String details) {
 
         }
 
         enum Type {ChuanCai, YueCai, BeiCai, BaiCaI}
-        Type type;
-        public String id;
-        public String content;
-        public String details;
+        static Type type;
+        public static String id;
+        public static String content;
+        public static String details;
 
         public RestaurantList(String id, Type type, String content, String details) {
             this.id = id;
