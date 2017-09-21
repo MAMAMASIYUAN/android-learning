@@ -69,4 +69,33 @@ public class DummyContent {
             return content;
         }
     }
+
+//    public static final DummyItem[] ITEMS = {
+//            new DummyItem(
+//                    "Rest1",
+////                    RestaurantList.Type.BaiCaI,
+//                    "baicaidebai",
+//                    "dabaicaixiaobaicaidoushibaicai"
+//            ),
+//            new DummyItem(
+//                    "Rest2",
+////                    RestaurantList.Type.ChuanCai,
+//                    "baicaidebai",
+//                    "dabaicaixiaobaicaidoushibaicai"
+//            ),
+//            new DummyItem(
+//                    "Rest3",
+////                    RestaurantList.Type.YueCai,
+//                    "baicaidebai",
+//                    "dabaicaixiaobaicaidoushibaicai"
+//            ),
+//            new DummyItem(
+//                    "Rest4",
+////                    RestaurantList.Type.BeiCai,
+//                    "beicaidebai",
+//                    "dabaicaixiaobaicaidoushibaicai"
+//            ),
+//
+//    };
+
 }
