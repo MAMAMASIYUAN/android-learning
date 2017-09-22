@@ -37,8 +37,30 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/item_detail_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/textRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating:5" />
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="5" />
+
+    </TableRow>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

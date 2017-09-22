@@ -49,15 +49,15 @@ public class MainActivity extends Activity {
 //            }
 //        });
 //
-//        final TextView value4 = (TextView) findViewById(R.id.value4);
-//        RatingBar ratingBar2 = (RatingBar) findViewById(R.id.ratingkbar2);
-//        ratingBar2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-//            @Override
-//            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-//                Log.d(TAG, "onRatingChanged");
-//                value4.setText("Rating: " + v);
-//            }
-//        });
+        final TextView value4 = (TextView) findViewById(R.id.value4);
+        RatingBar ratingBar2 = (RatingBar) findViewById(R.id.ratingkbar2);
+        ratingBar2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                Log.d(TAG, "onRatingChanged");
+                value4.setText("Rating: " + v);
+            }
+        });
 
     }
     private void buildControls(){

@@ -114,6 +114,7 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mIdView.setText(mValues.get(position).getId());
             holder.mImageView.setImageResource(image);
             holder.mContentView.setText(mValues.get(position).getContent());
+            holder.mRatingView.setText(String.valueOf(RatingResult.ratingOK) + "star");
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -147,6 +148,7 @@ public class ItemListActivity extends AppCompatActivity {
             public final TextView mIdView;
             public final ImageView mImageView;
             public final TextView mContentView;
+            public final TextView mRatingView;
             public DummyContent.DummyItem mItem;
 
             public ViewHolder(View view) {
@@ -155,6 +157,7 @@ public class ItemListActivity extends AppCompatActivity {
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mImageView = (ImageView) view.findViewById(R.id.image);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mRatingView = (TextView) view.findViewById(R.id.text3);
             }
 
             @Override

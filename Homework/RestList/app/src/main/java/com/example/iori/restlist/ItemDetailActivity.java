@@ -1,14 +1,20 @@
 package com.example.iori.restlist;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import static android.R.attr.rating;
 
 /**
  * An activity representing a single Item detail screen. This
@@ -18,6 +24,7 @@ import android.view.MenuItem;
  */
 public class ItemDetailActivity extends AppCompatActivity {
 
+    public float ratingRest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,20 @@ public class ItemDetailActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        final TextView rating = (TextView) findViewById(R.id.textRating);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar2);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                rating.setText("Rating: " + v);
+
+                RatingResult.ratingOK = v;
+
+            }
+        });
+
+
+
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -78,4 +99,6 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
+
