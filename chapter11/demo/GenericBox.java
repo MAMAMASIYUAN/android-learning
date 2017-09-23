@@ -15,14 +15,14 @@ public class GenericBox<T, E, S> {
   public static void main(String[] args) {
     GenericBox<Integer, String, Boolean> integerBox = new GenericBox<>();
     GenericBox<String> stringBox = new GenericBox<>();
-    GenericBox<Object> objBox = new GenericBox<>();
+    GenericBox<Boolean> objBox = new GenericBox<>();
  
     integerBox.add(new Integer(10));
-    stringBox.add(new String("鏂扮敓澶у路"));
+    stringBox.add(new String("23"));
     
     
 
-    System.out.printf("鏁村瀷鍊间负 :%d\n\n", integerBox.get());
-    System.out.printf("瀛楃涓蹭负 :%s\n", stringBox.get());
+    System.out.printf("整型值为 :%d\n\n", integerBox.get());
+    System.out.printf("字符串为 :%s\n", stringBox.get());
   }
 }

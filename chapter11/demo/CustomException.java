@@ -1,18 +1,18 @@
 public class CustomException {
    public static void main(String [] args) {
-      CheckingAccount c = new CheckingAccount(101);
-      System.out.println("å­˜å…¥500");
+      CheckingAccount c = new CheckingAccount(102);
+      System.out.println("´æÈë500");
       c.deposit(500.00);
       try
       {
-         System.out.println("\nå–100...");
+         System.out.println("\nÈ¡100...");
          c.withdraw(100.00);
 
-         System.out.println("\nå–$600...");
+         System.out.println("\nÈ¡600...");
          c.withdraw(600.00);
       } catch(InsufficientFundsException e)
       {
-         System.out.println("æŠ±æ­‰ï¼Œä½™é¢ä¸è¶³ï¼š"
+         System.out.println("±§Ç¸£¬Óà¶î²»×ã£º"
                                   + e.getAmount());
          e.printStackTrace();
       }
@@ -21,21 +21,22 @@ public class CustomException {
 
 class CheckingAccount
 {
-  //balanceä¸ºä½™é¢ï¼Œnumberä¸ºå¡å·
+  //balanceÎªÓà¶î£¬numberÎª¿¨ºÅ
    private double balance;
    private int number;
    public CheckingAccount(int number)
    {
       this.number = number;
    }
-  //æ–¹æ³•ï¼šå­˜é’±
+  //·½·¨£º´æÇ®
    public void deposit(double amount)
    {
+ 
       balance += amount;
    }
-  //æ–¹æ³•ï¼šå–é’±
+  //·½·¨£ºÈ¡Ç®
    public void withdraw(double amount)  throws
-                              InsufficientFundsException {
+    InsufficientFundsException {
       if(amount <= balance)
       {
          balance -= amount;
@@ -46,12 +47,12 @@ class CheckingAccount
          throw new InsufficientFundsException(needs);
       }
    }
-  //æ–¹æ³•ï¼šè¿”å›ä½™é¢
+  //·½·¨£º·µ»ØÓà¶î
    public double getBalance()
    {
       return balance;
    }
-  //æ–¹æ³•ï¼šè¿”å›å¡å·
+  //·½·¨£º·µ»Ø¿¨ºÅ
    public int getNumber()
    {
       return number;
@@ -60,7 +61,7 @@ class CheckingAccount
 
 class InsufficientFundsException extends Exception
 {
-  //æ­¤å¤„çš„amountç”¨æ¥å‚¨å­˜å½“å‡ºç°å¼‚å¸¸ï¼ˆå–å‡ºé’±å¤šäºä½™é¢æ—¶ï¼‰æ‰€ç¼ºä¹çš„é’±
+  //´Ë´¦µÄamountÓÃÀ´´¢´æµ±³öÏÖÒì³££¨È¡³öÇ®¶àÓÚÓà¶îÊ±£©ËùÈ±·¦µÄÇ®
   private double amount;
 
   public InsufficientFundsException(double amount) {

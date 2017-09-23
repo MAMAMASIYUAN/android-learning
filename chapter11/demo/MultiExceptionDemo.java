@@ -4,24 +4,24 @@ public class MultiExceptionDemo{
  
    public static void main(String args[]){
       try {
-          // å£°æ˜åªæœ‰ä¸¤ä¸ªå…ƒç´ çš„æ•°ç»„
+          // ÉùÃ÷Ö»ÓĞÁ½¸öÔªËØµÄÊı×é
          int a[] = new int[2];
-         // å¦‚æœä¸å°å¿ƒè®¿é—®ç¬¬ä¸‰ä¸ªå…ƒç´ ï¼Ÿ
-         System.out.println("è®¿é—®ç¬¬2ä¸ªå…ƒç´  : " + a[1]);
+         // Èç¹û²»Ğ¡ĞÄ·ÃÎÊµÚÈı¸öÔªËØ£¿
+         System.out.println("·ÃÎÊµÚ2¸öÔªËØ : " + a[3]);
 
          int x = 100, y = 0;
-         System.out.println("é™¤æ³• : " + x / y);
+         System.out.println("³ı·¨ : " + x / y);
 
          String s = null;;
-         System.out.println("è®¿é—®ç©ºå¯¹è±¡ : " + s.toString());
+         System.out.println("·ÃÎÊ¿Õ¶ÔÏó : " + s.toString());
       } catch(ArrayIndexOutOfBoundsException e1){
-         System.out.println("å‘ç”Ÿæ•°ç»„è¶Šç•Œå¼‚å¸¸ : " + e1);
+         System.out.println("·¢ÉúÊı×éÔ½½çÒì³£ : " + e1);
       } catch(ArithmeticException e2){
-         System.out.println("å‘ç”Ÿæ•°å­¦è¿ç®—å¼‚å¸¸ : " + e2);
+         System.out.println("·¢ÉúÊıÑ§ÔËËãÒì³£ : " + e2);
       } catch(NullPointerException e3){
-         System.out.println("å‘ç”Ÿç©ºæŒ‡é’ˆå¼‚å¸¸ : " + e3);
+         System.out.println("·¢Éú¿ÕÖ¸ÕëÒì³£ : " + e3);
       }
 
-      System.out.println("æ‰§è¡Œå®Œæ¯•ï¼");
+      System.out.println("Ö´ĞĞÍê±Ï£¡");
    }
 }

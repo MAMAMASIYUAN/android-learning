@@ -5,11 +5,11 @@ public class ExceptionDemo{
    public static void main(String args[]){
       try {
          int x = 100, y = 10;
-         System.out.println("é™¤æ³• : " + x / y);
+         System.out.println("³ı·¨ : " + x / y);
       } catch (ArithmeticException e2){
-         //System.out.println("å‘ç”Ÿæ•°å­¦è¿ç®—å¼‚å¸¸ : " + e2);
+        //  System.out.println("·¢ÉúÊıÑ§ÔËËãÒì³£ : " + e2);
          e2.printStackTrace();
       }
-      System.out.println("æ‰§è¡Œå®Œæ¯•ï¼");
+      System.out.println("Ö´ĞĞÍê±Ï£¡");
    }
 }

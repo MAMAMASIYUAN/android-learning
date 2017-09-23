@@ -4,18 +4,19 @@ public class ExceptionFinally{
    }
 
    private static int getDivValue() {
-       int x = 100, y = 0;
+       int x = 100, y = 2;
        int result = 0;
        try {
            result = x / y;
+          //  return result;
        }catch(ArithmeticException e){
-         System.out.println("å‘ç”Ÿæ•°å­¦è¿ç®—å¼‚å¸¸ : " + e);
+         System.out.println("·¢ÉúÊıÑ§ÔËËãÒì³£ : " + e);
          result = 5;
          return result;
       } finally{
-        System.out.println("Finallyæ‰§è¡Œå®Œæ¯•ï¼");
-        result = 10;
-        //return result;
+        System.out.println("FinallyÖ´ĞĞÍê±Ï£¡");
+        // result = 10;
+        // return result;
       }
       return result;
    }

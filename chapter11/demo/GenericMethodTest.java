@@ -1,29 +1,29 @@
 public class GenericMethodTest
 {
-   // æ³›å‹æ–¹æ³• printArray                         
+   // ·ºĞÍ·½·¨ printArray                         
    public static < T > void printArray( T[] inputArray )
    {
-      // è¾“å‡ºæ•°ç»„å…ƒç´             
+      // Êä³öÊı×éÔªËØ            
          for ( T element : inputArray ){        
             System.out.printf( "%s ", element );
          }
-         System.out.println();
+        //  System.out.println();
     }
  
     public static void main( String args[] )
     {
-        // åˆ›å»ºä¸åŒç±»å‹æ•°ç»„ï¼š Integer, Double å’Œ Character
+        // ´´½¨²»Í¬ÀàĞÍÊı×é£º Integer, Double ºÍ Character
         Integer[] intArray = { 1, 2, 3, 4, 5 };
         Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
         Character[] charArray = { 'H', 'E', 'L', 'L', 'O' };
  
-        System.out.println( "æ•´å‹æ•°ç»„å…ƒç´ ä¸º:" );
-        printArray( intArray  ); // ä¼ é€’ä¸€ä¸ªæ•´å‹æ•°ç»„
+        System.out.println( "ÕûĞÍÊı×éÔªËØÎª:" );
+        printArray( intArray  ); // ´«µİÒ»¸öÕûĞÍÊı×é
  
-        System.out.println( "\nåŒç²¾åº¦å‹æ•°ç»„å…ƒç´ ä¸º:" );
-        printArray( doubleArray ); // ä¼ é€’ä¸€ä¸ªåŒç²¾åº¦å‹æ•°ç»„
+        System.out.println( "\nË«¾«¶ÈĞÍÊı×éÔªËØÎª:" );
+        printArray( doubleArray ); // ´«µİÒ»¸öË«¾«¶ÈĞÍÊı×é
  
-        System.out.println( "\nå­—ç¬¦å‹æ•°ç»„å…ƒç´ ä¸º:" );
-        printArray( charArray ); // ä¼ é€’ä¸€ä¸ªå­—ç¬¦å‹æ•°ç»„
+        System.out.println( "\n×Ö·ûĞÍÊı×éÔªËØÎª:" );
+        printArray( charArray ); // ´«µİÒ»¸ö×Ö·ûĞÍÊı×é
     } 
 }
