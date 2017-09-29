@@ -53,15 +53,20 @@ public class DownloadTextTask extends AsyncTask<TextView, Void, String> {
     }
 
     private String getString(InputStream is) throws IOException {
+        String gettedString = null;
+       try {
+           BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+           StringBuffer sb = new StringBuffer();
+           String line = null;
+           while ((line = reader.readLine()) != null) {
+               sb.append(line + "\n");
+           }
+           reader.close();
+           gettedString = sb.toString();
+           return gettedString;
+       }catch(Exception e){}
 
-        BufferedReader reader = new BufferedReader(  new InputStreamReader(is, "UTF-8") );
-        StringBuffer sb = new StringBuffer();
-        while ( reader.readLine() != null ) {
-            sb.append( reader.readLine() + "\n" );
-        }
-        reader.close();
-        return sb.toString();
-
+        return gettedString;
     }
 
 
