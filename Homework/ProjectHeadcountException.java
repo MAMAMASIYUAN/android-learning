@@ -8,7 +8,7 @@ public class ProjectHeadcountException{
         System.out.println("\n Project needes 120 men.");
         h.needs(120);
     } catch(OutOfHeadcount e){
-        System.out.println("\n Out of headcount" + e.getHeadcount());
+        System.out.println("\n Out of headcount: " + e.getHeadcount() + " men.");
          e.printStackTrace();
     }
 
