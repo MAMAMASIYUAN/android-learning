@@ -85,7 +85,7 @@
 
 ##作业：下载并显示text文档遇到的问题。
 1.首先漏听了第12课，导致文件读取等操作一头雾水。只能不停的翻人家的例子，还一知半解。
-2.在用reader.readLine()读取文件时，踩了一大坑，代码如下：
+2.在用reader.readLine()读取文件时，踩了一大坑，代码如下
 'private String getString(InputStream is) throws IOException {
         String gettedString = null;
        try {
@@ -103,7 +103,7 @@
         return gettedString;
     }'
     这样做有什么问题呢？问题是再执行while后面的判断语句时已经读了一行文件，然后执行赋值时就已经是赋的下一行的值了。readline执行一次读取的游标就会往后移动。
-    所以正确的代码应该是：
+    所以正确的代码应该是
     'private String getString(InputStream is) throws IOException {
         String gettedString = null;
        try {
