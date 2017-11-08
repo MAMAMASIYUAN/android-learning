@@ -19,6 +19,7 @@ public class TotalPersonActivity extends AppCompatActivity {
 
 //    private Map<String,Person> personMap1 = new HashMap<String,Person>();
     private ListView listView1;
+    private HashMap<String,Person> personMap_get = new HashMap<String,Person>();
 
 
 
@@ -29,16 +30,19 @@ public class TotalPersonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_total_person);
         listView1=(ListView)findViewById(R.id.listView1);
 
-        //获取Personlist
+        //获取
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        ArrayList<Person> Personlist=bundle.getParcelableArrayList("list");
-        //Personlist转化为数组
-        int listsize=Personlist.size();
-        final  Person[] Persons = (Person[])Personlist.toArray(new Person[listsize]);
+        SerializableMap sermap_get= (SerializableMap) bundle.getSerializable("sermap_key");
+        personMap_get=sermap_get.getMap();
+
+        //personMap_get转化为数组
+        final Person[] Persons =MaptoArray(personMap_get);
+
 
         PersonAdapter madapter = new PersonAdapter(TotalPersonActivity.this, R.layout.person_item, Persons);
         listView1.setAdapter(madapter);
+
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -50,6 +54,18 @@ public class TotalPersonActivity extends AppCompatActivity {
 
         });
 
+
+    }
+
+    //personMap_get转化为数组
+     public Person[] MaptoArray(HashMap<String,Person>changedmap){
+         int mapsize=changedmap.size()-1;
+         Person[] returnpersons =new Person[mapsize];
+        for(int i=0;i<mapsize;i++){
+            String key= String.valueOf(2017001+i);
+            returnpersons[i]=changedmap.get(key);
+        }
+        return returnpersons;
 
     }
 

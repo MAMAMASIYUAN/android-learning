@@ -32,7 +32,7 @@ public class PersonDetailActivity extends AppCompatActivity {
         workexperience = (TextView) findViewById(R.id.workexperienceTextView);
         buttonModify=(Button)findViewById(R.id.buttonModify);
         Intent intent = getIntent();
-        person = intent.getParcelableExtra("Person");
+        person = (Person)intent.getSerializableExtra("Person");
 
     }
     @Override
@@ -59,7 +59,7 @@ public class PersonDetailActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
            if ( requestCode==1&&resultCode==RESULT_OK) {
-                person=data.getParcelableExtra("Person_IM");
+                person=(Person) data.getSerializableExtra("Person_IM");
                 //workexperience.setText(person.getWorkexperience());
              Log.d("person_Workexperience", person.getWorkexperience());
             }

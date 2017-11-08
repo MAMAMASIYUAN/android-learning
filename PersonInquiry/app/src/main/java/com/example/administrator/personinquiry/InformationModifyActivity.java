@@ -43,7 +43,7 @@ public class InformationModifyActivity extends AppCompatActivity {
         address = (TextView) findViewById(R.id.addressTextView_IM);
         workexperience = (EditText) findViewById(R.id.workexperienceEditText);
 
-            person_IM = intent.getParcelableExtra("Person_PD");
+            person_IM = (Person) intent.getSerializableExtra("Person_PD");
             person_IM_modify=person_IM;
             number.setText(person_IM.getNumber());
             name.setText(person_IM.getName());

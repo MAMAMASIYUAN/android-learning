@@ -1,5 +1,6 @@
 package com.example.administrator.personinquiry;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,11 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -52,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         Intent intent = getIntent();
         registernumber_R=intent.getStringExtra("RegisterNumber");
         numberTextView_R.setText(registernumber_R);
+
 
         //初始化需要注册的person
         person_R=new Person(registernumber_R,null,"","","","");
@@ -101,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                     person_R.setAddress(addressTextView_R.getText().toString());
                     person_R.setWorkexperience(workexperience_R.getText().toString());
 
+                    //返回注册的对象
                     Intent intent_R = new Intent();
                     intent_R.putExtra("Person_R", person_R);
                     setResult(3,intent_R);
@@ -144,10 +152,10 @@ public class RegisterActivity extends AppCompatActivity {
             if (password_R1.equals(password_R2)) {
                 password_R = password_R1;
             } else {
-                Toast.makeText(this, "两次输入的密码不一致", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "两次输入的密码不一致", LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入密码", LENGTH_SHORT).show();
         }
 
             return password_R;

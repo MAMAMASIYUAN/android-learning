@@ -3,11 +3,13 @@ package com.example.administrator.personinquiry;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/10/4.
  */
 
-public class Person implements Parcelable {
+public class Person implements Serializable {
     String number;
     String password;
     String name;
@@ -71,39 +73,5 @@ public class Person implements Parcelable {
         this.workexperience = workexperience;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.number);
-        dest.writeString(this.password);
-        dest.writeString(this.name);
-        dest.writeString(this.gender);
-        dest.writeString(this.address);
-        dest.writeString(this.workexperience);
-    }
-
-    protected Person(Parcel in) {
-        this.number = in.readString();
-        this.password = in.readString();
-        this.name = in.readString();
-        this.gender = in.readString();
-        this.address = in.readString();
-        this.workexperience = in.readString();
-    }
-
-    public static final Creator<Person> CREATOR = new Creator<Person>() {
-        @Override
-        public Person createFromParcel(Parcel source) {
-            return new Person(source);
-        }
-
-        @Override
-        public Person[] newArray(int size) {
-            return new Person[size];
-        }
-    };
 }

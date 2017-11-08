@@ -14,14 +14,18 @@ import java.util.Map;
  */
 public class SerializableMap implements Serializable{
 
-   private Map<String,Person> map;
+  // private Map<String,Person> map;
 //    private Map<String,Person> map = new HashMap<String,Person>();
+    private HashMap<String,Person> map;
+    public  SerializableMap(){
 
-    public Map<String, Person> getMap() {
+    }
+    public HashMap<String, Person> getMap() {
         return map;
     }
 
-    public void setMap(Map<String, Person> map) {
+    public void setMap(HashMap<String, Person> map) {
         this.map = map;
     }
+
 }
