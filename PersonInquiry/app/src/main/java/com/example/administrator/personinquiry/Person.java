@@ -10,21 +10,24 @@ import java.io.Serializable;
  */
 
 public class Person implements Serializable {
-    String number;
-    String password;
-    String name;
-    String gender;
-    String address;
-    String workexperience;
+    private String number;
+    private String password;
+    private String name;
+    private String gender;
+    private String address;
+    private String workexperience;
+    private int portraitId;
 
 
-    public Person(String number, String password,String name, String gender, String address,String workexperience) {
+    public Person(String number, String password,String name, String gender, String address,String workexperience,int portraitId) {
         this.number = number;
         this.password = password;
         this.name = name;
         this.gender = gender;
         this.address = address;
         this.workexperience=workexperience;
+        this.portraitId=portraitId;
+
     }
 
     public String getNumber() {
@@ -72,6 +75,13 @@ public class Person implements Serializable {
     public void setWorkexperience(String workexperience) {
         this.workexperience = workexperience;
     }
+    public int getPortraitId() {
+        return portraitId;
+    }
+    public void setPortraitId(int portraitId) {
+        this.portraitId = portraitId;
+    }
+
 
 
 }

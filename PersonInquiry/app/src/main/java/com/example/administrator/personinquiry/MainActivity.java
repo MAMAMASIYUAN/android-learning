@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private HashMap<String,Person> personMap = new HashMap<String,Person>();
     private Person inputPerson;
     private Person person_R;
+    private Person Person_PD;
     private Button buttonRegister;
     private int mapsize;
     private String registernumber;
@@ -50,19 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         //        Log.d("MainActivity", this.toString());
 
-
-
     }
 
-////    想文件写入对象
-//    public  void writeobj()throws Exception
-//    {
-//        FileOutputStream out = null;
-//        out =openFileOutput("personsfile", Context.MODE_PRIVATE);
-//        ObjectOutputStream oos = new ObjectOutputStream(out);
-//        oos.writeObject(new  Person("2017002","111111","张一","男","江苏", "sdfs"));
-//        oos.close();
-//    }
 
 
 //    从文件读出对象
@@ -87,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         clearPassword();
 
-
+        //查询person的信息
         buttonInquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,22 +87,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //注册新person
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mapsize=personMap.size();
                 registernumber= String.valueOf(mapsize+2017000);
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 intent.putExtra("RegisterNumber", registernumber);
                 startActivityForResult(intent, 2);
-
-
-
             }
         });
-
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -121,13 +108,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             writeobj(personMap);
         } catch (Exception e) {
-
         }
-
-
     }
 
-    //    想文件写入对象
+    //想文件写入对象
     public  void writeobj(HashMap<String,Person> p)throws Exception
     {
         FileOutputStream out = null;
@@ -137,18 +121,17 @@ public class MainActivity extends AppCompatActivity {
         oos.close();
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if ( requestCode==2&&resultCode==3) {
             person_R=(Person) data.getSerializableExtra("Person_R");
             personMap.put(person_R.getNumber(),person_R);
-
         }
 
+        if ( requestCode==4&&resultCode==5) {
+            Person_PD=(Person) data.getSerializableExtra("Person_PD");
+            personMap.put(Person_PD.getNumber(),Person_PD);}
     }
-
-
 
     //清除密码框
     public void clearPassword(){
@@ -159,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//检查用户名和密码检查是否注册
+    //检查用户名和密码检查是否注册
     private boolean CheckRegister(String number){
         boolean result=false;
         if( number!= null && number.length() != 0){
@@ -169,20 +152,20 @@ public class MainActivity extends AppCompatActivity {
               if(!number.equals("admin")) {
                   if(personpassword.equals(personMap.get(number).getPassword())){
                   Toast.makeText(this, "欢迎登陆",Toast.LENGTH_SHORT).show();
+
+                  //进入信息查询activity
                   Intent intent = new Intent(MainActivity.this, PersonDetailActivity.class);
                   intent.putExtra("Person", inputPerson);
-                  startActivity(intent);
+                      startActivityForResult(intent, 4);
+//                      startActivity(intent);
+
                   } else {
                     Toast.makeText(this, "密码错误",Toast.LENGTH_SHORT).show();
                   }
               }else{
                   if(personpassword.equals(personMap.get(number).getPassword())){
                       Toast.makeText(this, "欢迎管理员登陆",Toast.LENGTH_SHORT).show();
-
-                      //把personMap转化为Personlist
                       mapsize=personMap.size();
-//                      ArrayList<Person> Personlist=maptoarray(mapsize);
-//                      Log.d("Persons_length", String.valueOf(Personlist.size()));
                       SerializableMap sermap=new SerializableMap();
                       sermap.setMap(personMap);
 
@@ -208,50 +191,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    //把hashmap转化为list
-//    private ArrayList maptoarray(int Mapsize) {
-//        ArrayList<Person> personlist = new ArrayList();
-//        Person[] Persons = new Person[Mapsize];
-//        int i = 0;
-//        for (i = 0; i <= Mapsize - 2; i++) {
-//            String key = String.valueOf(2017001 + i);
-//            personlist.add(i,personMap.get(key));
-//        }
-//        return personlist;
-//    }
-
-
 
     private void initPersons(){
         personMap.put("admin",new Person("admin","admin","管理员","男","湖北",
-                "无"));
-//    personMap.put("2017001", new Person("2017001","111111","张一","男","江苏",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017002", new Person("2017002","111111","张二","女","安徽",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017003", new Person("2017003","111111","张三","男","江西",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017004", new Person("2017004","111111","张四","女","上海",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017005", new Person("2017005","111111","李一","男","湖北",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017006", new Person("2017006","111111","李二","女","安徽",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017007", new Person("2017007","111111","李三","男","湖南",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017008", new Person("2017008","111111","李四","女","湖南",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017009", new Person("2017009","111111","王一","男","河北",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017010", new Person("2017010","111111","王二","女","江苏",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017011", new Person("2017011","111111","王三","男","江苏",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-//    personMap.put("2017012", new Person("2017012","111111","王四","女","江苏",
-//            "2008年9月至今在安徽省家好家节能门窗有限公司综合办公室主任,2006年01月2008年01月在安徽亚夏实业股份有限公司法律事务部内审助理。"));
-
-
-
+                "无",R.drawable.default_portrait));
    }
 
 }

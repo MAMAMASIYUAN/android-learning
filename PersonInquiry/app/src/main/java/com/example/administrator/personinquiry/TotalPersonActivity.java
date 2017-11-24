@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class TotalPersonActivity extends AppCompatActivity {
 
-//    private Map<String,Person> personMap1 = new HashMap<String,Person>();
     private ListView listView1;
     private HashMap<String,Person> personMap_get = new HashMap<String,Person>();
 

@@ -28,7 +28,6 @@ public class InformationModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_modify);
-
     }
 
     @Override

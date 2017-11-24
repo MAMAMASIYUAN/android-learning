@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class PersonDetailActivity extends AppCompatActivity {
     TextView gender;
     TextView address;
     TextView workexperience;
+    ImageView portrait;
     Button buttonModify;
 
 
@@ -30,7 +32,10 @@ public class PersonDetailActivity extends AppCompatActivity {
         gender = (TextView) findViewById(R.id.genderTextView);
         address = (TextView) findViewById(R.id.addressTextView);
         workexperience = (TextView) findViewById(R.id.workexperienceTextView);
+        portrait=(ImageView)findViewById(R.id.portrait);
         buttonModify=(Button)findViewById(R.id.buttonModify);
+
+
         Intent intent = getIntent();
         person = (Person)intent.getSerializableExtra("Person");
 
@@ -44,6 +49,7 @@ public class PersonDetailActivity extends AppCompatActivity {
         gender.setText(person.getGender());
         address.setText(person.getAddress());
         workexperience.setText(person.getWorkexperience());
+        portrait.setImageResource(R.drawable.default_portrait);
 
         buttonModify.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,10 +66,19 @@ public class PersonDetailActivity extends AppCompatActivity {
 
            if ( requestCode==1&&resultCode==RESULT_OK) {
                 person=(Person) data.getSerializableExtra("Person_IM");
-                //workexperience.setText(person.getWorkexperience());
-             Log.d("person_Workexperience", person.getWorkexperience());
+//             Log.d("person_Workexperience", person.getWorkexperience());
             }
-
     }
+
+    @Override
+    public void onBackPressed(){
+//        返回查询的Person
+        Intent intent1 = new Intent();
+        intent1.putExtra("Person_PD", person);
+        setResult(5,intent1);
+        finish();
+    }
+
+
 
 }

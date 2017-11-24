@@ -141,6 +141,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right">
+
+<!--            <Button
+                android:id="@+id/buttonSendmail"
+                android:text="发送邮件"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />-->
+
             <Button
                 android:id="@+id/buttonReturn_R"
                 android:text="返回"
