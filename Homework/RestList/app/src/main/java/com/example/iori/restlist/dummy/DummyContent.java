@@ -16,34 +16,7 @@ import java.util.Map;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-    private static final DummyItem[] ITEMSS = {
-            new DummyItem("Red Rest",
-                    DummyItem.Type.Red,
-                    "This Rest is Red",
-                    "Rest is a red.Rest is a red.Rest is a red.Rest is a red.Rest is a red.Rest is a red.Rest is a red.Rest is a red.Rest is a red. "),
 
-            new DummyItem("Red Rest No2",
-                    DummyItem.Type.Red,
-                    "This Rest is Red, too.",
-                    "This Rest is Red, too.This Rest is Red, too.This Rest is Red, too.This Rest is Red, too.This Rest is Red, too.This Rest is Red, too.This Rest is Red, too.This Rest is Red, too."),
-
-            new DummyItem("Sparkling Rest",
-                    DummyItem.Type.Sparkling,
-                    "This Rest is Sparkling.",
-                    "This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling.This Rest is Sparkling."),
-
-            new DummyItem("White Rest",
-                    DummyItem.Type.White,
-                    "This Rest is White.",
-                    "This Rest is White.This Rest is White.This Rest is White.This Rest is White.This Rest is White.This Rest is White.This Rest is White.This Rest is White.This Rest is White."),
-
-            new DummyItem("Rose Rest",
-                    DummyItem.Type.Rosé,
-                    "This Rest is Rose.",
-                    "This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.This Rest is Rose.."),
-
-
-    };
 
     /**
      * An array of sample (dummy) items.
@@ -57,15 +30,15 @@ public class DummyContent {
 
 //    private static final int COUNT = 25;
 
-    static {
-
-        // Add some sample items.
-        for (int i = 0; i < ITEMSS.length; i++) {
-//            addItem(createDummyItem(i));
-            ITEMS.add(ITEMSS[i]);
-            ITEM_MAP.put(ITEMSS[i].getId(), ITEMSS[i]);
-        }
-    }
+//    static {
+//
+//        // Add some sample items.
+//        for (int i = 0; i < ITEMSS.length; i++) {
+////            addItem(createDummyItem(i));
+//            ITEMS.add(ITEMSS[i]);
+//            ITEM_MAP.put(ITEMSS[i].getId(), ITEMSS[i]);
+//        }
+//    }
 
 //    private static DummyItem createDummyItem(int position) {
 //        return new DummyItem(makeTitle(position), makeType(position), makeShort(position), makeDetails(position));

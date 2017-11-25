@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.iori.inq">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CompanyDetailes"
+            android:label="@string/title_activity_company_detailes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CompanyAdd" />
+        <activity android:name=".CompanyDetailAdd" />
+        <activity
+            android:name=".DeleteDialog"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".DeleteDetailDialog"
+            android:theme="@android:style/Theme.Dialog" ></activity>
+    </application>
+
+</manifest>
