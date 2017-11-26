@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.administrator.personinquiry.PersonDetailActivity">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="编号：" />
-            <TextView
-                android:id="@+id/numberTextView"
-                android:textSize="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="编号：" />
+                <TextView
+                    android:id="@+id/numberTextView"
+                    android:textSize="20dp"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
@@ -37,12 +40,12 @@
                     android:text="姓名：" />
                 <TextView
                     android:id="@+id/nameTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:textSize="20dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
@@ -52,13 +55,13 @@
                     android:text="性别：" />
                 <TextView
                     android:id="@+id/genderTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:textSize="20dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
@@ -68,24 +71,58 @@
                     android:text="地址：" />
                 <TextView
                     android:id="@+id/addressTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:textSize="20dp"
                     android:layout_height="wrap_content" />
-
             </LinearLayout>
 
 
-        <ImageView
-            android:id="@+id/portrait"
-            android:layout_width="100dp"
-            android:layout_height="120dp" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+            <ImageView
+                android:id="@+id/portrait"
+                android:layout_width="95dp"
+                android:layout_height="115dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="github：" />
+        <TextView
+            android:id="@+id/websitetext"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+        <Button
+            android:id="@+id/buttongo"
+            android:text="转到github"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -97,7 +134,7 @@
                 android:id="@+id/workexperienceTextView"
                 android:layout_width="match_parent"
                 android:textSize="18dp"
-                android:layout_height="155dp" />
+                android:layout_height="119dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -105,12 +142,9 @@
             android:layout_gravity="right">
             <Button
                 android:id="@+id/buttonModify"
-                android:text="修改"
-                android:textSize="20dp"
+                android:text="修改简历"
+                android:textSize="19.5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-    </LinearLayout>
-
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

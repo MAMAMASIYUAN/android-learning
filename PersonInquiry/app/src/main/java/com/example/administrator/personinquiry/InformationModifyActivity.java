@@ -20,9 +20,11 @@ public class InformationModifyActivity extends AppCompatActivity {
     private TextView name;
     private TextView gender;
     private TextView address;
+    private EditText websiteEdtextMD;
     private EditText workexperience;
     private Spinner spinneraddress;
     private int addressposition;
+    private Button buttonchangepassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class InformationModifyActivity extends AppCompatActivity {
         gender = (TextView) findViewById(R.id.genderTextView_IM);
         spinneraddress= (Spinner) findViewById(R.id.spinneraddress);
         address = (TextView) findViewById(R.id.addressTextView_IM);
+        websiteEdtextMD = (EditText) findViewById(R.id.websiteEdtextMD);
         workexperience = (EditText) findViewById(R.id.workexperienceEditText);
 
             person_IM = (Person) intent.getSerializableExtra("Person_PD");
@@ -48,6 +51,7 @@ public class InformationModifyActivity extends AppCompatActivity {
             name.setText(person_IM.getName());
             gender.setText(person_IM.getGender());
             address.setText(person_IM.getAddress());
+            websiteEdtextMD.setText(person_IM.getWebsite());
             workexperience.setText(person_IM.getWorkexperience());
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, SUBS);
@@ -72,6 +76,7 @@ public class InformationModifyActivity extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                person_IM_modify.setWebsite(websiteEdtextMD.getText().toString());
                 person_IM_modify.setAddress(SUBS[addressposition]);
                 person_IM_modify.setWorkexperience(workexperience.getText().toString());
                 saveRemind();
@@ -89,7 +94,33 @@ public class InformationModifyActivity extends AppCompatActivity {
             }
 
         });
+
+        buttonchangepassword = (Button) findViewById(R.id.buttonchangepassword);
+        buttonchangepassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String password=person_IM_modify.getPassword();
+                Intent intent = new Intent(InformationModifyActivity.this,changepassword.class);
+                intent.putExtra("password_key", password);
+                startActivityForResult(intent, 40);
+
+            }
+        });
+
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        //changepasswordactivity返回修改的密码。并保存到person
+        if ( requestCode==40&&resultCode==32) {
+            person_IM_modify.setPassword(data.getStringExtra("newpassword_key"));
+        }
+
+
+    }
+
+
+
     @Override
     public void onBackPressed(){
         Intent intent = new Intent(InformationModifyActivity.this,PersonDetailActivity.class);
@@ -97,6 +128,9 @@ public class InformationModifyActivity extends AppCompatActivity {
         setResult(RESULT_OK,intent);
         finish();
     }
+
+
+
 
     //保存后提醒
     public void saveRemind(){

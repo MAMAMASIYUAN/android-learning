@@ -29,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Switch gender_switch;
     private TextView addressTextView_R;
     private Spinner spinneraddress_R;
+    private EditText websiteEdtext;
     private EditText workexperience_R;
     private Button buttonReturn_R;
     private Button buttonRegister_R;
@@ -49,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         gender_switch = (Switch) findViewById(R.id.genderswitch_R);
         addressTextView_R = (TextView) findViewById(R.id.addressTextView_R);
         spinneraddress_R = (Spinner) findViewById(R.id.spinneraddress_R);
+        websiteEdtext = (EditText) findViewById(R.id.websiteEdtext);
         workexperience_R = (EditText) findViewById(R.id.workexperience_R);
         buttonReturn_R = (Button) findViewById(R.id.buttonReturn_R);
         buttonRegister_R = (Button) findViewById(R.id.buttonRegister_R);
@@ -57,11 +59,13 @@ public class RegisterActivity extends AppCompatActivity {
         //获得注册编号
         Intent intent = getIntent();
         registernumber_R = intent.getStringExtra("RegisterNumber");
-        numberTextView_R.setText(registernumber_R);
-
 
         //初始化需要注册的person
-        person_R = new Person(registernumber_R, null, "", "", "", "",R.drawable.default_portrait);
+        person_R = new Person(registernumber_R, null, "", "女", "", "","",R.drawable.default_femaleportrait);
+
+        //初始化页面
+        numberTextView_R.setText(person_R.getNumber());
+        genderTextView_R.setText(person_R.getGender());
 
         //设置性别
         gender_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -97,19 +101,40 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister_R.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Checkpassword() != null) {
 
-                    person_R.setPassword(Checkpassword());
-                    person_R.setName(nameEditText_R.getText().toString());
-                    person_R.setGender(genderTextView_R.getText().toString());
-                    person_R.setAddress(addressTextView_R.getText().toString());
-                    person_R.setWorkexperience(workexperience_R.getText().toString());
+                if (Checkpassword() != null)
+                {
+                    if (!nameEditText_R.getText().toString().isEmpty()){
+                        if(!genderTextView_R.getText().toString().isEmpty()){
+                            if(!addressTextView_R.getText().toString().isEmpty()) {
+                                person_R.setPassword(Checkpassword());
+                                person_R.setName(nameEditText_R.getText().toString());
+                                person_R.setGender(genderTextView_R.getText().toString());
 
-                    //返回注册的对象
-                    Intent intent_R = new Intent();
-                    intent_R.putExtra("Person_R", person_R);
-                    setResult(3, intent_R);
-                    RegisterRemind();
+                                if(person_R.getGender().equals("男")){
+                                    person_R.setPortraitId(R.drawable.default_maleportrait);
+                                }else{
+                                    person_R.setPortraitId(R.drawable.default_femaleportrait);;
+                                }
+
+                                person_R.setAddress(addressTextView_R.getText().toString());
+                                person_R.setWebsite(websiteEdtext.getText().toString());
+                                person_R.setWorkexperience(workexperience_R.getText().toString());
+
+                                //返回注册的对象
+                                Intent intent_R = new Intent();
+                                intent_R.putExtra("Person_R", person_R);
+                                setResult(3, intent_R);
+                                RegisterRemind();
+                            }else{
+                                AddressRemind();
+                            }
+                        } else{
+                            GenderRemind();
+                        }
+                    } else{
+                        NameRemind();
+                    }
                 }
             }
         });
@@ -131,7 +156,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                Intent data=new Intent(Intent.ACTION_SENDTO);
 //                data.setData(Uri.parse("mailto:200487wei@163.com"));
 //                data.putExtra(Intent.EXTRA_SUBJECT, "这是标题");
-//                data.putExtra(Intent.EXTRA_TEXT, "这是内容");
+//                dta.putExtra(Intent.EXTRA_TEXT, "这是内容");
 //                startActivity(data);
 //
 //            }
@@ -141,8 +166,19 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     //保存后提醒
-    public void RegisterRemind(){
+    private void RegisterRemind(){
         Toast.makeText(this, "您注册成功",Toast.LENGTH_SHORT).show();
+    }
+    private void NameRemind(){
+        Toast.makeText(this, "请输入姓名",Toast.LENGTH_SHORT).show();
+    }
+
+    private void GenderRemind(){
+        Toast.makeText(this, "请选择性别",Toast.LENGTH_SHORT).show();
+    }
+
+    private void  AddressRemind(){
+        Toast.makeText(this, "请选择您所在的省份",Toast.LENGTH_SHORT).show();
     }
     public void switchchanged(CompoundButton buttonView,boolean isChecked) {
         if (buttonView.isChecked()) {
@@ -159,7 +195,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     //两次输入的密码检测
-    public String Checkpassword(){
+    private String Checkpassword(){
         String password_R=null;
         String password_R1=passwordEditText_R1.getText().toString();
         String password_R2=passwordEditText_R2.getText().toString();

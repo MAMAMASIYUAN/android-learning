@@ -15,17 +15,20 @@ public class Person implements Serializable {
     private String name;
     private String gender;
     private String address;
+    private String website;
     private String workexperience;
     private int portraitId;
 
 
-    public Person(String number, String password,String name, String gender, String address,String workexperience,int portraitId) {
+
+    public Person(String number, String password,String name, String gender, String address,String workexperience,String website,int portraitId) {
         this.number = number;
         this.password = password;
         this.name = name;
         this.gender = gender;
         this.address = address;
         this.workexperience=workexperience;
+        this.website=website;
         this.portraitId=portraitId;
 
     }
@@ -82,6 +85,12 @@ public class Person implements Serializable {
         this.portraitId = portraitId;
     }
 
+    public String getWebsite() {
+        return website;
+    }
 
+    public void setWebsite(String website) {
+        this.website = website;
+    }
 
 }

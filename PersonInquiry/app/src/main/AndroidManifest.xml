@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.personinquiry">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,9 +29,16 @@
             android:label="员工名单" />
         <activity
             android:name=".InformationModifyActivity"
-            android:label="修改信息"></activity>
-        <activity android:name=".RegisterActivity"
-            android:label="注册"></activity>
+            android:label="修改信息" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="注册" />
+        <activity
+            android:name=".WebviewActivity"
+            android:label="Github" />
+        <activity android:name=".changepassword"
+            android:label="修改密码" />
+
     </application>
 
 </manifest>

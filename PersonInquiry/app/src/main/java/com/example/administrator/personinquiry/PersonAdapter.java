@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -32,6 +33,8 @@ public class PersonAdapter extends ArrayAdapter<Person>{
             viewHolder.text2 = (TextView) view.findViewById (R.id.text2);
             viewHolder.text3 = (TextView) view.findViewById (R.id.text3);
             viewHolder.text4 = (TextView) view.findViewById (R.id.text4);
+            viewHolder.portrait_item = (ImageView) view.findViewById (R.id.portrait_item);
+
 
             view.setTag(viewHolder); // 将ViewHolder存储在View中
         } else {
@@ -43,6 +46,7 @@ public class PersonAdapter extends ArrayAdapter<Person>{
         viewHolder.text2.setText(person.getName());
         viewHolder.text3.setText(person.getGender());
         viewHolder.text4.setText(person.getAddress());
+        viewHolder.portrait_item.setImageResource(person.getPortraitId());
         return view;
     }
 
@@ -52,6 +56,7 @@ public class PersonAdapter extends ArrayAdapter<Person>{
         TextView text2;
         TextView text3;
         TextView text4;
+        ImageView portrait_item;
 
     }
 

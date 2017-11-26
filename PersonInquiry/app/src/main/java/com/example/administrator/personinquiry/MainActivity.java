@@ -123,14 +123,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        //RegisterActivity返回的person
         if ( requestCode==2&&resultCode==3) {
             person_R=(Person) data.getSerializableExtra("Person_R");
             personMap.put(person_R.getNumber(),person_R);
         }
 
+        //PersonDetailActivity返回的person
         if ( requestCode==4&&resultCode==5) {
             Person_PD=(Person) data.getSerializableExtra("Person_PD");
             personMap.put(Person_PD.getNumber(),Person_PD);}
+
+        //TotalPersonActivity返回的hashmap
+        if ( requestCode==10&&resultCode==55) {
+            Bundle bundle = data.getExtras();
+            SerializableMap sermap_get= (SerializableMap) bundle.getSerializable("sermapTP_key");
+            personMap=sermap_get.getMap();
+        }
+
     }
 
     //清除密码框
@@ -169,12 +180,14 @@ public class MainActivity extends AppCompatActivity {
                       SerializableMap sermap=new SerializableMap();
                       sermap.setMap(personMap);
 
-                      //传送Personlist给TotalPersonActivity
+                      //传送hashmap给TotalPersonActivity
                       Intent intent2 = new Intent(MainActivity.this, TotalPersonActivity.class);
                       Bundle bundle = new Bundle();
                       bundle.putSerializable("sermap_key",sermap);
                       intent2.putExtras(bundle);
-                      startActivity(intent2);
+                      startActivityForResult(intent2,10);
+
+
                   } else {
                       Toast.makeText(this, "密码错误",Toast.LENGTH_SHORT).show();
                   }
@@ -192,9 +205,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     private void initPersons(){
         personMap.put("admin",new Person("admin","admin","管理员","男","湖北",
-                "无",R.drawable.default_portrait));
+                "无","",R.drawable.default_portrait));
    }
 
 }

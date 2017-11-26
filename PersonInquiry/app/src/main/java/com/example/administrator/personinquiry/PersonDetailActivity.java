@@ -18,8 +18,10 @@ public class PersonDetailActivity extends AppCompatActivity {
     TextView gender;
     TextView address;
     TextView workexperience;
+    TextView websitetext;
     ImageView portrait;
     Button buttonModify;
+    Button buttongo;
 
 
     @Override
@@ -31,10 +33,11 @@ public class PersonDetailActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.nameTextView);
         gender = (TextView) findViewById(R.id.genderTextView);
         address = (TextView) findViewById(R.id.addressTextView);
+        websitetext = (TextView) findViewById(R.id.websitetext);
         workexperience = (TextView) findViewById(R.id.workexperienceTextView);
         portrait=(ImageView)findViewById(R.id.portrait);
         buttonModify=(Button)findViewById(R.id.buttonModify);
-
+        buttongo=(Button)findViewById(R.id.buttongo);
 
         Intent intent = getIntent();
         person = (Person)intent.getSerializableExtra("Person");
@@ -49,7 +52,13 @@ public class PersonDetailActivity extends AppCompatActivity {
         gender.setText(person.getGender());
         address.setText(person.getAddress());
         workexperience.setText(person.getWorkexperience());
-        portrait.setImageResource(R.drawable.default_portrait);
+        websitetext.setText(person.getWebsite());
+        portrait.setImageResource(person.getPortraitId());
+
+
+
+
+
 
         buttonModify.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -59,7 +68,27 @@ public class PersonDetailActivity extends AppCompatActivity {
                 startActivityForResult(intent4,1);
             }
         });
+
+        buttongo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String website=null;
+                website=person.getWebsite();
+                if(!(website.isEmpty())){
+                    Intent intent = new Intent(PersonDetailActivity.this, WebviewActivity.class);
+                    intent.putExtra("websitekey",website );
+                    startActivity(intent);
+                }else{
+                    remind();
+                }
+
+
+            }
+        });
+
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -78,6 +107,12 @@ public class PersonDetailActivity extends AppCompatActivity {
         setResult(5,intent1);
         finish();
     }
+
+    private void remind(){
+        Toast.makeText(this, "请输入您的githu地址",Toast.LENGTH_SHORT).show();
+
+    }
+
 
 
 

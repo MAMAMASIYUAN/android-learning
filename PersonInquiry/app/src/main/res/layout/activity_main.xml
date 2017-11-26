@@ -19,7 +19,7 @@
         <EditText
             android:id="@+id/editTextNumber"
             android:textSize="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -38,7 +38,7 @@
             android:id="@+id/editTextPassword"
             android:inputType="textPassword"
             android:textSize="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
